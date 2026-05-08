@@ -41,4 +41,4 @@ PORT=3000
 
 - The contact form prepares a mailto message locally. The original hosted form provider is not reproduced because it depends on the previous website platform.
 - The meeting button links to the current external HubSpot scheduling page.
-- The original PDF download links were not embedded because the live asset URLs are hosted by the previous site provider. They can be added to `public/` and linked from the page templates if local copies are available.
+- Original images, video, and PDF download links are referenced from the existing GoDaddy/WSIMG asset URLs so the converted layout keeps the live site's visual assets.
