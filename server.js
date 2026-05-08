@@ -2,7 +2,7 @@ const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
 const { URLSearchParams } = require("node:url");
-const { renderPage, pages } = require("./src/pages");
+const { renderPage, pages, originalRoutes } = require("./src/pages");
 
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || "127.0.0.1";
@@ -16,7 +16,9 @@ const mimeTypes = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".svg": "image/svg+xml",
-  ".ico": "image/x-icon"
+  ".ico": "image/x-icon",
+  ".mp4": "video/mp4",
+  ".pdf": "application/pdf"
 };
 
 function send(res, statusCode, body, contentType = "text/html; charset=utf-8") {
@@ -48,8 +50,8 @@ function serveStatic(req, res) {
 
 function normalizePath(pathname) {
   const clean = pathname.replace(/\/+$/, "") || "/";
-  if (clean === "/six-pillars%E2%84%A2" || clean === "/six-pillars™") return "/six-pillars";
-  return clean.toLowerCase();
+  const decoded = decodeURIComponent(clean).toLowerCase();
+  return originalRoutes[decoded] || decoded;
 }
 
 function handleContactPost(req, res) {
@@ -91,12 +93,6 @@ const server = http.createServer((req, res) => {
   }
 
   const route = normalizePath(requestUrl.pathname);
-  if (route !== requestUrl.pathname && route === "/six-pillars") {
-    res.writeHead(301, { Location: "/six-pillars" });
-    res.end();
-    return;
-  }
-
   if (!pages[route]) {
     send(res, 404, renderPage("Page not found", "<h1>Page not found</h1><p>The page you requested is not available.</p>", route), "text/html; charset=utf-8");
     return;
