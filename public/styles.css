@@ -184,6 +184,7 @@ h3 {
 .faq,
 .prose,
 .contact-layout,
+.pillar-detail,
 .page-heading {
   width: min(1120px, calc(100% - 36px));
   margin: 0 auto;
@@ -235,13 +236,26 @@ h3 {
 }
 
 .pillar-grid article {
-  padding: 24px;
+  overflow: hidden;
 }
 
 .pillar-grid span {
   display: inline-block;
   margin-bottom: 12px;
   font-size: 28px;
+}
+
+.pillar-card-link {
+  display: grid;
+  height: 100%;
+  padding: 24px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pillar-card-link strong {
+  align-self: end;
+  color: var(--accent-dark);
 }
 
 .page-heading {
@@ -267,6 +281,30 @@ h3 {
 
 .service-list article {
   padding: 26px;
+}
+
+.pillar-heading .hero-actions {
+  margin-top: 24px;
+}
+
+.pillar-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  padding-bottom: 72px;
+}
+
+.pillar-detail > div,
+.pillar-detail aside {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.pillar-detail li,
+.prose li {
+  margin-bottom: 10px;
 }
 
 .faq {
@@ -423,7 +461,8 @@ textarea {
 
   .split,
   .service-list,
-  .contact-layout {
+  .contact-layout,
+  .pillar-detail {
     grid-template-columns: 1fr;
   }
 

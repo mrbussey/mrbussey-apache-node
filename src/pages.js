@@ -56,13 +56,164 @@ function renderPage(title, content, route = "/") {
 }
 
 const pillars = [
-  ["⚙️", "Smart Workflow Automation", "Automate repetitive, manual processes to save time, reduce errors, and let your team focus on meaningful work."],
-  ["📊", "Instant Insight Reporting", "Turn complex data into clear, decision-ready insights with reliable, easy-to-understand reporting."],
-  ["🧭", "Precision Data Integrity", "Keep data accurate, secure, compliant, and trustworthy across systems and reports."],
-  ["🔄", "Seamless System Sync", "Integrate disconnected systems so data flows automatically, accurately, and without manual intervention."],
-  ["🏗️", "Scalable Data Foundations", "Design cloud-ready data architectures that support growth without adding chaos."],
-  ["⚡", "High-Speed Custom Tooling", "Build lightweight, purpose-built tools that solve specific business problems without unnecessary complexity."]
+  {
+    icon: "⚙️",
+    title: "Smart Workflow Automation",
+    slug: "/six-pillars/smart-workflow-automation",
+    summary: "Automate repetitive, manual processes to save time, reduce errors, and let your team focus on meaningful work.",
+    lead: "Stop losing billable hours to busywork. Smart Workflow Automation turns repetitive routines into reliable background processes that run the same way every time.",
+    details: [
+      "Map the current manual process and identify the exact steps that create delays, rework, or duplicate entry.",
+      "Build Power Automate flows, PowerShell scripts, lightweight services, or API-driven routines that remove unnecessary handoffs.",
+      "Add logging, alerts, and clear operating notes so the automation can be trusted after launch."
+    ],
+    outcomes: [
+      "Fewer manual touchpoints",
+      "Reduced data-entry errors",
+      "Faster turnaround on recurring work",
+      "More time for billable or customer-facing activity"
+    ]
+  },
+  {
+    icon: "📊",
+    title: "Instant Insight Reporting",
+    slug: "/six-pillars/instant-insight-reporting",
+    summary: "Turn complex data into clear, decision-ready insights with reliable, easy-to-understand reporting.",
+    lead: "Instant Insight Reporting gives leadership and operators the numbers they need without waiting on spreadsheet cleanup or manual exports.",
+    details: [
+      "Extract and normalize data from systems, files, and databases.",
+      "Create repeatable reporting pipelines using SQL, Power BI, Power Automate, or custom scripts.",
+      "Design reports around business decisions instead of raw system output."
+    ],
+    outcomes: [
+      "Consistent recurring reports",
+      "Less spreadsheet handling",
+      "Cleaner performance visibility",
+      "Faster decisions from trusted data"
+    ]
+  },
+  {
+    icon: "🧭",
+    title: "Precision Data Integrity",
+    slug: "/six-pillars/precision-data-integrity",
+    summary: "Keep data accurate, secure, compliant, and trustworthy across systems and reports.",
+    lead: "Precision Data Integrity protects the quality of the data your business relies on before small issues become expensive operational problems.",
+    details: [
+      "Find duplicate, missing, stale, or malformed records across important systems.",
+      "Build validation, cleanup, and normalization routines that can run repeatedly.",
+      "Create checks and reporting that show where data quality is improving or drifting."
+    ],
+    outcomes: [
+      "Cleaner master data",
+      "More reliable reporting",
+      "Fewer downstream corrections",
+      "Better audit readiness"
+    ]
+  },
+  {
+    icon: "🔄",
+    title: "Seamless System Sync",
+    slug: "/six-pillars/seamless-system-sync",
+    summary: "Integrate disconnected systems so data flows automatically, accurately, and without manual intervention.",
+    lead: "Seamless System Sync connects the tools your business already uses so information moves without copy-and-paste work.",
+    details: [
+      "Identify authoritative source systems and the direction each data flow should move.",
+      "Build integrations with APIs, files, Power Automate, PowerShell, SQL, or middleware when appropriate.",
+      "Include retry handling and visibility so synchronization failures are easy to spot and resolve."
+    ],
+    outcomes: [
+      "Less duplicate entry",
+      "More consistent records between systems",
+      "Faster handoffs across teams",
+      "Clearer ownership of business data"
+    ]
+  },
+  {
+    icon: "🏗️",
+    title: "Scalable Data Foundations",
+    slug: "/six-pillars/scalable-data-foundations",
+    summary: "Design cloud-ready data architectures that support growth without adding chaos.",
+    lead: "Scalable Data Foundations help growing businesses move from scattered files and fragile workarounds into structured, maintainable data environments.",
+    details: [
+      "Design practical data models, storage patterns, and access boundaries.",
+      "Plan Azure, SQL, Synapse, storage, or reporting foundations around actual business needs.",
+      "Document the architecture clearly so future growth does not depend on guesswork."
+    ],
+    outcomes: [
+      "A clearer data architecture",
+      "Better reporting and integration readiness",
+      "Less dependency on fragile spreadsheets",
+      "Room to grow without rebuilding from scratch"
+    ]
+  },
+  {
+    icon: "⚡",
+    title: "High-Speed Custom Tooling",
+    slug: "/six-pillars/high-speed-custom-tooling",
+    summary: "Build lightweight, purpose-built tools that solve specific business problems without unnecessary complexity.",
+    lead: "High-Speed Custom Tooling fills the gap when off-the-shelf software is too broad and manual work is too slow.",
+    details: [
+      "Define the narrow job the tool must do and keep the scope practical.",
+      "Build utilities for file handling, batch processing, data cleanup, system configuration, or focused workflow tasks.",
+      "Deliver the tool with simple instructions and enough logging to make daily use straightforward."
+    ],
+    outcomes: [
+      "Fast relief for specific process pain",
+      "Less dependence on manual workarounds",
+      "Tools shaped around the way your team actually works",
+      "A practical path before investing in larger applications"
+    ]
+  }
 ];
+
+function pillarCard(pillar) {
+  return `<article>
+    <a class="pillar-card-link" href="${pillar.slug}">
+      <span>${pillar.icon}</span>
+      <h3>${pillar.title}</h3>
+      <p>${pillar.summary}</p>
+      <strong>Learn more</strong>
+    </a>
+  </article>`;
+}
+
+function pillarOverview(pillar) {
+  return `<article>
+    <h2>${pillar.icon} ${pillar.title}</h2>
+    <p>${pillar.lead}</p>
+    <a class="text-link" href="${pillar.slug}">View ${pillar.title}</a>
+  </article>`;
+}
+
+function pillarPage(pillar) {
+  return `
+    <section class="page-heading pillar-heading">
+      <p class="eyebrow">Six Pillars to Success™</p>
+      <h1>${pillar.icon} ${pillar.title}</h1>
+      <p>${pillar.lead}</p>
+      <div class="hero-actions">
+        <a class="button primary" href="${meetingUrl}">Schedule Your Free Workflow Audit</a>
+        <a class="button secondary" href="/six-pillars">All Six Pillars</a>
+      </div>
+    </section>
+    <section class="pillar-detail">
+      <div>
+        <h2>What This Covers</h2>
+        <ul>${pillar.details.map(item => `<li>${item}</li>`).join("")}</ul>
+      </div>
+      <aside>
+        <h2>Expected Outcomes</h2>
+        <ul>${pillar.outcomes.map(item => `<li>${item}</li>`).join("")}</ul>
+      </aside>
+    </section>
+    <section class="band">
+      <div>
+        <h2>Ready to look at this in your business?</h2>
+        <p>A short workflow audit is usually enough to identify the best first improvement and the systems it touches.</p>
+      </div>
+      <a class="button primary" href="mailto:${email}">Start the Conversation</a>
+    </section>`;
+}
 
 const pages = {
   "/": {
@@ -102,7 +253,7 @@ const pages = {
       <section class="pillars-preview">
         <h2>My Six Pillars to Success™</h2>
         <div class="pillar-grid">
-          ${pillars.map(([icon, title, body]) => `<article><span>${icon}</span><h3>${title}</h3><p>${body}</p></article>`).join("")}
+          ${pillars.map(pillarCard).join("")}
         </div>
       </section>`
   },
@@ -115,31 +266,7 @@ const pages = {
         <p>Automation, reporting, tooling, synchronization, integrity, and data foundations for businesses that need practical systems improvement.</p>
       </section>
       <section class="service-list">
-        <article>
-          <h2>⚙️ Smart Workflow Automation</h2>
-          <p>Stop losing billable hours to busywork. I help small businesses reclaim their time by automating repetitive, manual tasks.</p>
-          <p>By bridging gaps in your current workflow, I transform complex hands-on routines into seamless background processes that reduce errors and protect data integrity.</p>
-        </article>
-        <article>
-          <h2>📊 Instant Insight Reporting</h2>
-          <p>I automate extraction, transformation, and visualization so fragmented data becomes polished, accurate reporting delivered to your inbox or dashboard.</p>
-        </article>
-        <article>
-          <h2>⚡ High-Speed Custom Tooling</h2>
-          <p>When a full web app is too much, I build lightweight tools for batch processing, file manipulation, system configuration, and other focused jobs.</p>
-        </article>
-        <article>
-          <h2>🔄 Seamless System Sync</h2>
-          <p>I bridge siloed systems with Power Automate, PowerShell, and custom APIs so changes in one application update everywhere else automatically.</p>
-        </article>
-        <article>
-          <h2>🧭 Precision Data Integrity</h2>
-          <p>I build automated validation, deduplication, and formatting routines that help keep business data organized and trustworthy.</p>
-        </article>
-        <article>
-          <h2>🏗️ Scalable Data Foundations</h2>
-          <p>I design the blueprints for how data flows through your business, moving messy spreadsheets into structured environments optimized for growth.</p>
-        </article>
+        ${pillars.map(pillarOverview).join("")}
       </section>
       <section class="faq">
         <h2>Frequently Asked Questions</h2>
@@ -221,6 +348,13 @@ const pages = {
       </section>`
   }
 };
+
+for (const pillar of pillars) {
+  pages[pillar.slug] = {
+    title: pillar.title,
+    content: () => pillarPage(pillar)
+  };
+}
 
 function job(title, org, body) {
   return `<article class="job"><h3>${title}</h3><p><strong>${org}</strong></p><p>${body}</p></article>`;
