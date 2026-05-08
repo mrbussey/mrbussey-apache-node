@@ -241,12 +241,12 @@ const pages = {
           <div>
             <h2>About Me</h2>
             ${paragraphs([
-              "I, Richard K. Bussey, am an IT and business systems consultant with over 40 years of experience helping organizations turn complicated business needs into scalable, dependable technical solutions. I specialize in translating what the business <em>means</em> into what technology actually needs to do — because “we just need it to work” has never passed a requirements review.",
-              "Over the years, I’ve led enterprise ERP implementations, cloud and data architecture initiatives, and system integrations in highly regulated environments. I’m known for asking uncomfortable questions early, documenting things clearly, and keeping projects moving when the room goes quiet and everyone suddenly looks at IT.",
-              "Outside of work, I’m a husband, father, grandfather, and soon-to-be great-grandfather. I dearly love my wife, value family above job titles, and have a dry sense of humor that tends to surface once people realize I’m serious about the work—but not about myself.",
-              "At the end of the day, I bring experience, clarity, and steady leadership to complex environments; without unnecessary buzzwords, theatrics, or chaos.",
-              "<strong>I help organizations build systems that work—without the chaos.</strong>"
-            ])}
+      "I, Richard K. Bussey, am an IT and business systems consultant with over 40 years of experience helping organizations turn complicated business needs into scalable, dependable technical solutions. I specialize in translating what the business <em>means</em> into what technology actually needs to do — because “we just need it to work” has never passed a requirements review.",
+      "Over the years, I’ve led enterprise ERP implementations, cloud and data architecture initiatives, and system integrations in highly regulated environments. I’m known for asking uncomfortable questions early, documenting things clearly, and keeping projects moving when the room goes quiet and everyone suddenly looks at IT.",
+      "Outside of work, I’m a husband, father, grandfather, and soon-to-be great-grandfather. I dearly love my wife, value family above job titles, and have a dry sense of humor that tends to surface once people realize I’m serious about the work—but not about myself.",
+      "At the end of the day, I bring experience, clarity, and steady leadership to complex environments; without unnecessary buzzwords, theatrics, or chaos.",
+      "<strong>I help organizations build systems that work—without the chaos.</strong>"
+    ])}
           </div>
         </div>
         <div class="narrow-copy">
